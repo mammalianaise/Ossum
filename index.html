@@ -28,13 +28,15 @@
     font-family: 'Inter', -apple-system, sans-serif;
     font-weight: 300;
     display: flex;
+    align-items: center;
     justify-content: center;
-    padding: 8vh 24px 12vh;
+    min-height: 100vh;
+    padding: 10vh 24px;
   }
 
   main {
     width: 100%;
-    max-width: 560px;
+    max-width: 480px;
     text-align: center;
   }
 
@@ -43,37 +45,27 @@
     max-width: 70%;
     height: auto;
     display: block;
-    margin: 0 auto 3rem;
+    margin: 0 auto 3.5rem;
   }
 
   h1 {
     font-family: 'Cormorant Garamond', Georgia, serif;
     font-weight: 400;
-    font-size: 2rem;
-    letter-spacing: 0.02em;
-    margin: 0 0 1.5rem;
+    font-size: 1.9rem;
+    line-height: 1.4;
+    letter-spacing: 0.01em;
+    margin: 0 0 1.75rem;
   }
 
   p {
     font-size: 1rem;
-    line-height: 1.8;
-    margin: 0 0 1.5rem;
-    opacity: 0.92;
-  }
-
-  .photos {
-    margin: 3.5rem 0;
-  }
-
-  .photos img {
-    width: 100%;
-    height: auto;
-    display: block;
-    margin: 0 0 1.5rem;
+    line-height: 1.85;
+    margin: 0;
+    opacity: 0.9;
   }
 
   .contact {
-    margin-top: 3.5rem;
+    margin-top: 4rem;
     font-size: 1rem;
     line-height: 2.2;
   }
@@ -88,16 +80,16 @@
   a:hover { border-bottom-color: var(--accent); }
 
   footer {
-    margin-top: 5rem;
-    font-size: 0.75rem;
-    letter-spacing: 0.08em;
+    margin-top: 4.5rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-    opacity: 0.5;
+    opacity: 0.45;
   }
 
   @media (max-width: 480px) {
-    h1 { font-size: 1.65rem; }
-    body { padding: 6vh 20px 10vh; }
+    h1 { font-size: 1.6rem; }
+    body { padding: 8vh 20px; }
   }
 </style>
 </head>
@@ -106,16 +98,9 @@
 
   <img class="logo" src="logo.png" alt="Ossum">
 
-  <h1>Small-batch pâté, made in London</h1>
+  <h1>The whole animal. All the organs. Reinforced with marrow.</h1>
 
-  <p>
-    Slow-cooked, properly seasoned, and made in small batches.
-    Available for markets, delis, private events and standing orders.
-  </p>
-
-  <div class="photos">
-    <img src="pate.jpg" alt="Ossum pâté">
-  </div>
+  <p>Nothing is wasted and nothing is hidden.</p>
 
   <div class="contact">
     <a href="mailto:hello@ossum.london">hello@ossum.london</a><br>
