@@ -3,48 +3,127 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ossum — game and marrow</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&display=swap" rel="stylesheet">
+<title>Ossum</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Inter:wght@300;400&display=swap" rel="stylesheet">
 <style>
+  :root {
+    --bg: #6B6E6B;
+    --text: #EDE9DF;
+    --accent: #F5A93F;
+  }
+
+  * { box-sizing: border-box; }
+
   html, body {
-    height: 100%;
     margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
   }
+
   body {
-    background: #F4EDE0;
-    color: #2B2622;
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: 'Inter', -apple-system, sans-serif;
+    font-weight: 300;
     display: flex;
-    align-items: center;
     justify-content: center;
-    text-align: center;
-    padding: 2rem;
-    box-sizing: border-box;
+    padding: 8vh 24px 12vh;
   }
+
+  main {
+    width: 100%;
+    max-width: 560px;
+    text-align: center;
+  }
+
   .logo {
-    width: 340px;
-    max-width: 80vw;
+    width: 240px;
+    max-width: 70%;
     height: auto;
     display: block;
-    margin: 0 auto 2.5rem;
+    margin: 0 auto 3rem;
   }
+
+  h1 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-weight: 400;
+    font-size: 2rem;
+    letter-spacing: 0.02em;
+    margin: 0 0 1.5rem;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.8;
+    margin: 0 0 1.5rem;
+    opacity: 0.92;
+  }
+
+  .photos {
+    margin: 3.5rem 0;
+  }
+
+  .photos img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 0 1.5rem;
+  }
+
+  .contact {
+    margin-top: 3.5rem;
+    font-size: 1rem;
+    line-height: 2.2;
+  }
+
   a {
-    color: #2B2622;
-    font-size: 1.15rem;
-    letter-spacing: 0.04em;
+    color: var(--accent);
     text-decoration: none;
-    border-bottom: 1px solid rgba(43,38,34,0.35);
-    padding-bottom: 2px;
+    border-bottom: 1px solid rgba(245,169,63,0.35);
+    padding-bottom: 1px;
   }
-  a:hover {
-    border-bottom-color: #2B2622;
+
+  a:hover { border-bottom-color: var(--accent); }
+
+  footer {
+    margin-top: 5rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0.5;
+  }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 1.65rem; }
+    body { padding: 6vh 20px 10vh; }
   }
 </style>
 </head>
 <body>
-  <main>
-    <img class="logo" src="logo.png" alt="Ossum — game and marrow">
-    <a href="mailto:hello@ossum.london">hello@ossum.london</a>
-  </main>
+<main>
+
+  <img class="logo" src="logo.png" alt="Ossum">
+
+  <h1>Small-batch pâté, made in London</h1>
+
+  <p>
+    Slow-cooked, properly seasoned, and made in small batches.
+    Available for markets, delis, private events and standing orders.
+  </p>
+
+  <div class="photos">
+    <img src="pate.jpg" alt="Ossum pâté">
+  </div>
+
+  <div class="contact">
+    <a href="mailto:hello@ossum.london">hello@ossum.london</a><br>
+    <a href="tel:+447955822097">07955 822097</a>
+  </div>
+
+  <footer>Ossum &middot; London</footer>
+
+</main>
 </body>
 </html>
