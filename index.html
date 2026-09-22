@@ -51,24 +51,38 @@
 
   .logo {
     position: absolute;
-    top: 10%;
+    top: 8%;
     left: 6%;
     width: 88%;
-    height: 62%;
+    height: 60%;
     object-fit: contain;
     object-position: center;
+  }
+
+  .tagline {
+    position: absolute;
+    left: 7%;
+    bottom: 27%;
+    margin: 0;
+    color: var(--cream);
+    font-size: clamp(1rem, 2.6vw, 1.85rem);
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: .01em;
   }
 
   .contact {
     position: absolute;
     left: 7%;
-    bottom: 10%;
+    bottom: 8%;
+    margin: 0;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: .2em;
-    font-size: clamp(1rem, 2.5vw, 1.75rem);
+    gap: .1em;
+    font-size: clamp(.9rem, 2.1vw, 1.45rem);
     font-weight: 400;
+    font-style: normal;
     line-height: 1.15;
   }
 
@@ -87,8 +101,12 @@
       padding: 10px;
     }
 
+    .tagline {
+      font-size: clamp(.8rem, 3.8vw, 1.1rem);
+    }
+
     .contact {
-      font-size: clamp(.82rem, 3.8vw, 1.15rem);
+      font-size: clamp(.7rem, 3.2vw, .95rem);
     }
   }
 </style>
@@ -97,6 +115,8 @@
 <body>
   <main class="card">
     <img class="logo" src="logo.png" alt="Ossum">
+
+    <p class="tagline">Game pâté and pie filling.</p>
 
     <address class="contact">
       <a href="tel:+447955822097">07955 822097</a>
