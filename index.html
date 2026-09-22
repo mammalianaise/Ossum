@@ -7,7 +7,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400&family=IM+Fell+English&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
   :root {
@@ -44,11 +44,11 @@
 
   .left-column {
     position: absolute;
-    z-index: 4;
+    z-index: 2;
     top: 7%;
     bottom: 7%;
     left: 7%;
-    width: 39%;
+    width: 42%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -62,13 +62,14 @@
   }
 
   .description {
+    max-width: 500px;
     margin: 0;
     color: var(--cream);
-    font-family: "IM Fell English", Georgia, serif;
-    font-size: clamp(1.5rem, 2.6vw, 2.3rem);
+    font-family: "Libre Baskerville", Baskerville, Georgia, serif;
+    font-size: clamp(1.35rem, 2.25vw, 2rem);
     font-weight: 400;
-    line-height: 1.08;
-    letter-spacing: .01em;
+    line-height: 1.25;
+    letter-spacing: -.015em;
   }
 
   .contact {
@@ -78,7 +79,7 @@
     align-items: flex-start;
     gap: .08em;
     font-family: "Cormorant Garamond", Georgia, serif;
-    font-size: clamp(1.45rem, 2.7vw, 2.15rem);
+    font-size: clamp(1.5rem, 2.8vw, 2.25rem);
     font-weight: 400;
     font-style: normal;
     line-height: 1.12;
@@ -96,36 +97,11 @@
 
   .rabbit {
     position: absolute;
-    z-index: 3;
-    top: 14%;
-    right: 4%;
-    width: min(46vw, 690px);
+    z-index: 1;
+    top: 18%;
+    right: 3%;
+    width: min(51vw, 760px);
     height: auto;
-  }
-
-  /* Bold, tightly cropped product photograph */
-  .photo-wrap {
-    position: absolute;
-    z-index: 2;
-    left: 57%;
-    bottom: 3%;
-    width: min(32vw, 470px);
-    height: min(34vh, 330px);
-    overflow: hidden;
-    transform: translateX(-50%);
-  }
-
-  .pate-photo {
-    width: 100%;
-    height: 100%;
-    display: block;
-    object-fit: cover;
-    object-position: 43% 55%;
-    filter:
-      saturate(1.2)
-      contrast(1.08)
-      brightness(1.02);
-    transform: scale(1.18);
   }
 
   @media (max-width: 700px) {
@@ -143,24 +119,18 @@
 
     .description {
       max-width: 58%;
-      font-size: clamp(1.4rem, 6.5vw, 1.95rem);
+      font-size: clamp(1.2rem, 5.5vw, 1.65rem);
+      line-height: 1.25;
     }
 
     .contact {
-      font-size: clamp(1.3rem, 6vw, 1.7rem);
+      font-size: clamp(1.35rem, 6.2vw, 1.8rem);
     }
 
     .rabbit {
-      top: 24%;
-      right: -16%;
-      width: 98%;
-    }
-
-    .photo-wrap {
-      left: 65%;
-      bottom: 5%;
-      width: 56%;
-      height: 29%;
+      top: 26%;
+      right: -17%;
+      width: 102%;
     }
   }
 </style>
@@ -208,13 +178,6 @@
         height="2000">
       </image>
     </svg>
-
-    <div class="photo-wrap">
-      <img
-        class="pate-photo"
-        src="IMG_0029.jpeg"
-        alt="Ossum game pâté">
-    </div>
 
   </main>
 </body>
