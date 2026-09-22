@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ossum — Game and Marrow</title>
+<title>Ossum</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
   :root {
@@ -29,114 +29,66 @@
 
   body {
     min-height: 100svh;
-    padding: 24px;
+    padding: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background:
-      radial-gradient(circle at 20% 20%, rgba(255,255,255,.035), transparent 32%),
-      radial-gradient(circle at 80% 75%, rgba(0,0,0,.05), transparent 38%),
-      var(--background);
+    background: var(--background);
     color: var(--cream);
-    font-family: Inter, -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: "Cormorant Garamond", Georgia, serif;
     -webkit-font-smoothing: antialiased;
   }
 
   .card {
     position: relative;
-    width: min(760px, 100%);
-    min-height: 480px;
-    padding: 70px 55px 55px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    text-align: center;
+    width: min(980px, 100%);
+    aspect-ratio: 89 / 51;
+    overflow: hidden;
     background: var(--card);
-    border: 1px solid rgba(237, 232, 219, .72);
-    box-shadow:
-      inset 0 0 0 7px var(--card),
-      inset 0 0 0 8px rgba(237, 232, 219, .22),
-      0 24px 65px rgba(24, 26, 24, .2);
+    border: 1px solid rgba(237, 232, 219, .18);
+    box-shadow: 0 22px 55px rgba(24, 26, 24, .2);
   }
 
   .logo {
-    display: block;
-    width: 280px;
-    max-width: 72%;
-    height: auto;
-  }
-
-  .identity {
-    margin: 45px 0;
-  }
-
-  .rule {
-    width: 45px;
-    height: 1px;
-    margin: 0 auto 24px;
-    background: var(--orange);
-  }
-
-  .product {
-    margin: 0;
-    font-family: "Cormorant Garamond", Georgia, serif;
-    font-size: clamp(1.55rem, 4vw, 2rem);
-    font-weight: 400;
-    letter-spacing: .025em;
-  }
-
-  .location {
-    margin: 13px 0 0;
-    font-size: .68rem;
-    letter-spacing: .28em;
-    text-transform: uppercase;
-    opacity: .72;
+    position: absolute;
+    top: 10%;
+    left: 6%;
+    width: 88%;
+    height: 62%;
+    object-fit: contain;
+    object-position: center;
   }
 
   .contact {
+    position: absolute;
+    left: 7%;
+    bottom: 10%;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 18px;
-    font-size: .82rem;
-    letter-spacing: .04em;
-  }
-
-  .contact span {
-    color: var(--orange);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: .2em;
+    font-size: clamp(1rem, 2.5vw, 1.75rem);
+    font-weight: 400;
+    line-height: 1.15;
   }
 
   a {
-    color: var(--cream);
+    color: var(--orange);
     text-decoration: none;
-    border-bottom: 1px solid rgba(237, 232, 219, .3);
-    padding-bottom: 3px;
   }
 
   a:hover,
   a:focus {
-    color: var(--orange);
-    border-bottom-color: var(--orange);
+    color: var(--cream);
   }
 
   @media (max-width: 560px) {
     body {
-      padding: 14px;
-    }
-
-    .card {
-      min-height: calc(100svh - 28px);
-      padding: 65px 28px 45px;
+      padding: 10px;
     }
 
     .contact {
-      flex-direction: column;
-      gap: 13px;
-    }
-
-    .contact span {
-      display: none;
+      font-size: clamp(.82rem, 3.8vw, 1.15rem);
     }
   }
 </style>
@@ -144,19 +96,12 @@
 
 <body>
   <main class="card">
-    <img class="logo" src="logo.png" alt="Ossum — game and marrow">
+    <img class="logo" src="logo.png" alt="Ossum">
 
-    <div class="identity">
-      <div class="rule"></div>
-      <p class="product">Rabbit &amp; marrow pâté</p>
-      <p class="location">London</p>
-    </div>
-
-    <div class="contact">
-      <a href="mailto:hello@ossum.london">hello@ossum.london</a>
-      <span>·</span>
+    <address class="contact">
       <a href="tel:+447955822097">07955 822097</a>
-    </div>
+      <a href="mailto:hello@ossum.london">hello@ossum.london</a>
+    </address>
   </main>
 </body>
 </html>
