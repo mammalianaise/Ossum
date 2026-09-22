@@ -7,7 +7,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400&family=Cormorant+Infant:wght@400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400&family=IM+Fell+English&display=swap" rel="stylesheet">
 
 <style>
   :root {
@@ -42,7 +42,6 @@
     background: var(--background);
   }
 
-  /* Complete left-hand reading column */
   .left-column {
     position: absolute;
     z-index: 4;
@@ -65,10 +64,11 @@
   .description {
     margin: 0;
     color: var(--cream);
-    font-family: "Cormorant Infant", Georgia, serif;
-    font-size: clamp(1.5rem, 2.5vw, 2.25rem);
+    font-family: "IM Fell English", Georgia, serif;
+    font-size: clamp(1.5rem, 2.6vw, 2.3rem);
     font-weight: 400;
     line-height: 1.08;
+    letter-spacing: .01em;
   }
 
   .contact {
@@ -94,7 +94,6 @@
     color: var(--cream);
   }
 
-  /* Rabbit overlaps the photograph slightly */
   .rabbit {
     position: absolute;
     z-index: 3;
@@ -104,15 +103,16 @@
     height: auto;
   }
 
-  /* Photograph anchored into the page rather than floating */
+  /* Bold, tightly cropped product photograph */
   .photo-wrap {
     position: absolute;
-    z-index: 1;
-    right: 0;
-    bottom: 0;
-    width: 42%;
-    height: 43%;
+    z-index: 2;
+    left: 57%;
+    bottom: 3%;
+    width: min(32vw, 470px);
+    height: min(34vh, 330px);
     overflow: hidden;
+    transform: translateX(-50%);
   }
 
   .pate-photo {
@@ -120,34 +120,12 @@
     height: 100%;
     display: block;
     object-fit: cover;
-    object-position: center 55%;
+    object-position: 43% 55%;
     filter:
-      grayscale(.62)
-      saturate(.58)
-      contrast(.94)
-      brightness(.84);
-    opacity: .8;
-  }
-
-  /* Fades the photograph into the grey background */
-  .photo-wrap::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background:
-      linear-gradient(
-        to right,
-        var(--background) 0%,
-        rgba(98, 102, 102, .88) 8%,
-        transparent 35%
-      ),
-      linear-gradient(
-        to bottom,
-        var(--background) 0%,
-        rgba(98, 102, 102, .75) 10%,
-        transparent 38%
-      );
-    pointer-events: none;
+      saturate(1.2)
+      contrast(1.08)
+      brightness(1.02);
+    transform: scale(1.18);
   }
 
   @media (max-width: 700px) {
@@ -165,7 +143,7 @@
 
     .description {
       max-width: 58%;
-      font-size: clamp(1.35rem, 6.4vw, 1.9rem);
+      font-size: clamp(1.4rem, 6.5vw, 1.95rem);
     }
 
     .contact {
@@ -173,14 +151,16 @@
     }
 
     .rabbit {
-      top: 25%;
+      top: 24%;
       right: -16%;
       width: 98%;
     }
 
     .photo-wrap {
-      width: 62%;
-      height: 32%;
+      left: 65%;
+      bottom: 5%;
+      width: 56%;
+      height: 29%;
     }
   }
 </style>
@@ -209,7 +189,7 @@
       <p class="description">Game pâté and pie filling.</p>
 
       <address class="contact">
-        <a href="tel:+447955822097">07955 822 097</a>
+        <a href="tel:+447955822097">07955 822097</a>
         <a href="mailto:hello@ossum.london">hello@ossum.london</a>
       </address>
 
