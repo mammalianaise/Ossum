@@ -7,12 +7,12 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400&family=Cormorant+Infant:wght@400&display=swap" rel="stylesheet">
 
 <style>
   :root {
     --page: #747773;
-    --card: #626562;
+    --card: #626666;
     --cream: #ede8db;
     --orange: #f5a93f;
   }
@@ -34,7 +34,6 @@
     align-items: center;
     justify-content: center;
     background: var(--page);
-    font-family: "Cormorant Garamond", Georgia, serif;
     -webkit-font-smoothing: antialiased;
   }
 
@@ -44,43 +43,50 @@
     aspect-ratio: 89 / 51;
     overflow: hidden;
     background: var(--card);
-    box-shadow: 0 20px 55px rgba(26, 28, 26, .19);
+    box-shadow: 0 20px 55px rgba(26, 28, 26, .18);
   }
 
-  .content {
+  /* Original Ossum wordmark with “game and marrow” */
+  .wordmark {
     position: absolute;
-    z-index: 2;
-    top: 18%;
-    bottom: 10%;
-    left: 8%;
+    top: 10%;
+    left: 6%;
     width: 39%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    height: auto;
+  }
+
+  /* Rabbit taken from the original logo image */
+  .rabbit {
+    position: absolute;
+    top: 20%;
+    right: 5%;
+    width: 48%;
+    height: auto;
   }
 
   .description {
+    position: absolute;
+    top: 49%;
+    left: 7%;
     margin: 0;
     color: var(--cream);
-    font-size: clamp(1.7rem, 4vw, 3rem);
+    font-family: "Cormorant Infant", Georgia, serif;
+    font-size: clamp(1.15rem, 2.7vw, 1.9rem);
     font-weight: 400;
-    line-height: 1.03;
-  }
-
-  .rule {
-    width: 58px;
-    height: 1px;
-    margin-top: auto;
-    margin-bottom: 20px;
-    background: rgba(237, 232, 219, .65);
+    line-height: 1.1;
+    letter-spacing: .005em;
   }
 
   .contact {
+    position: absolute;
+    left: 7%;
+    bottom: 14%;
     margin: 0;
     display: flex;
     flex-direction: column;
     gap: .08em;
-    font-size: clamp(1rem, 2.3vw, 1.55rem);
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: clamp(1rem, 2.35vw, 1.55rem);
     font-weight: 400;
     font-style: normal;
     line-height: 1.15;
@@ -96,36 +102,6 @@
     color: var(--cream);
   }
 
-  .brand {
-    position: absolute;
-    z-index: 1;
-    top: 4%;
-    right: -2%;
-    width: 62%;
-    height: 92%;
-    overflow: hidden;
-  }
-
-  .brand img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-
-  /* Covers only the old “game and marrow” line */
-  .brand::after {
-    content: "";
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    left: 4%;
-    height: 20%;
-    background: var(--card);
-  }
-
   @media (max-width: 650px) {
     body {
       padding: 10px;
@@ -138,32 +114,29 @@
       aspect-ratio: auto;
     }
 
-    .brand {
-      top: 0;
-      right: -18%;
-      width: 105%;
-      height: 62%;
+    .wordmark {
+      top: 7%;
+      left: 7%;
+      width: 58%;
     }
 
-    .content {
-      top: auto;
-      right: 8%;
-      bottom: 7%;
-      left: 8%;
-      width: auto;
+    .rabbit {
+      top: 25%;
+      right: -8%;
+      width: 86%;
     }
 
     .description {
-      font-size: clamp(1.8rem, 8vw, 2.5rem);
-    }
-
-    .rule {
-      margin-top: 30px;
-      margin-bottom: 16px;
+      top: auto;
+      bottom: 26%;
+      left: 8%;
+      font-size: clamp(1.45rem, 7vw, 2rem);
     }
 
     .contact {
-      font-size: clamp(1.15rem, 5.5vw, 1.55rem);
+      left: 8%;
+      bottom: 8%;
+      font-size: clamp(1.15rem, 5.5vw, 1.5rem);
     }
   }
 </style>
@@ -171,20 +144,43 @@
 
 <body>
   <main class="card">
-    <section class="content">
-      <p class="description">Game pâté<br>and pie filling.</p>
 
-      <div class="rule"></div>
+    <svg
+      class="wordmark"
+      viewBox="300 990 1500 670"
+      role="img"
+      aria-label="Ossum — game and marrow"
+      preserveAspectRatio="xMidYMid meet">
+      <image
+        href="logo.png"
+        x="0"
+        y="0"
+        width="2000"
+        height="2000">
+      </image>
+    </svg>
 
-      <address class="contact">
-        <a href="tel:+447955822097">07955 822097</a>
-        <a href="mailto:hello@ossum.london">hello@ossum.london</a>
-      </address>
-    </section>
+    <svg
+      class="rabbit"
+      viewBox="450 330 1100 650"
+      aria-hidden="true"
+      preserveAspectRatio="xMidYMid meet">
+      <image
+        href="logo.png"
+        x="0"
+        y="0"
+        width="2000"
+        height="2000">
+      </image>
+    </svg>
 
-    <div class="brand">
-      <img src="logo.png" alt="Ossum">
-    </div>
+    <p class="description">Game pâté and pie filling.</p>
+
+    <address class="contact">
+      <a href="tel:+447955822097">07955 822 097</a>
+      <a href="mailto:hello@ossum.london">hello@ossum.london</a>
+    </address>
+
   </main>
 </body>
 </html>
