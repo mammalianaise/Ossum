@@ -22,13 +22,14 @@
 
   html,
   body {
+    width: 100%;
+    height: 100%;
     margin: 0;
-    min-height: 100%;
+    overflow: hidden;
     background: var(--background);
   }
 
   body {
-    min-height: 100svh;
     color: var(--cream);
     -webkit-font-smoothing: antialiased;
   }
@@ -36,53 +37,48 @@
   .page {
     position: relative;
     width: 100%;
-    min-height: 100svh;
+    height: 100svh;
     overflow: hidden;
     background: var(--background);
   }
 
-  .wordmark {
+  /* Complete left-hand reading column */
+  .left-column {
     position: absolute;
-    top: 8%;
+    z-index: 4;
+    top: 7%;
+    bottom: 7%;
     left: 7%;
-    width: min(36vw, 520px);
-    height: auto;
-  }
-
-  .rabbit {
-    position: absolute;
-    top: 15%;
-    right: 5%;
-    width: min(46vw, 690px);
-    height: auto;
-  }
-
-  .details {
-    position: absolute;
-    top: 43%;
-    left: 7%;
+    width: 39%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  .wordmark {
+    display: block;
+    width: min(100%, 520px);
+    height: auto;
   }
 
   .description {
     margin: 0;
     color: var(--cream);
     font-family: "Cormorant Infant", Georgia, serif;
-    font-size: clamp(1.45rem, 2.4vw, 2.15rem);
+    font-size: clamp(1.5rem, 2.5vw, 2.25rem);
     font-weight: 400;
-    line-height: 1.1;
+    line-height: 1.08;
   }
 
   .contact {
-    margin: clamp(38px, 5vw, 68px) 0 0;
+    margin: 0;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: .08em;
     font-family: "Cormorant Garamond", Georgia, serif;
-    font-size: clamp(1.35rem, 2.5vw, 2rem);
+    font-size: clamp(1.45rem, 2.7vw, 2.15rem);
     font-weight: 400;
     font-style: normal;
     line-height: 1.12;
@@ -98,50 +94,93 @@
     color: var(--cream);
   }
 
-  .pate-photo {
+  /* Rabbit overlaps the photograph slightly */
+  .rabbit {
     position: absolute;
-    right: 9%;
-    bottom: 7%;
-    width: min(18vw, 260px);
+    z-index: 3;
+    top: 14%;
+    right: 4%;
+    width: min(46vw, 690px);
     height: auto;
+  }
+
+  /* Photograph anchored into the page rather than floating */
+  .photo-wrap {
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    bottom: 0;
+    width: 42%;
+    height: 43%;
+    overflow: hidden;
+  }
+
+  .pate-photo {
+    width: 100%;
+    height: 100%;
     display: block;
     object-fit: cover;
+    object-position: center 55%;
+    filter:
+      grayscale(.62)
+      saturate(.58)
+      contrast(.94)
+      brightness(.84);
+    opacity: .8;
+  }
+
+  /* Fades the photograph into the grey background */
+  .photo-wrap::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(
+        to right,
+        var(--background) 0%,
+        rgba(98, 102, 102, .88) 8%,
+        transparent 35%
+      ),
+      linear-gradient(
+        to bottom,
+        var(--background) 0%,
+        rgba(98, 102, 102, .75) 10%,
+        transparent 38%
+      );
+    pointer-events: none;
   }
 
   @media (max-width: 700px) {
-    .wordmark {
+    .left-column {
       top: 5%;
+      right: 7%;
+      bottom: 6%;
       left: 7%;
+      width: auto;
+    }
+
+    .wordmark {
       width: 68%;
     }
 
-    .rabbit {
-      top: 24%;
-      right: -12%;
-      width: 92%;
-    }
-
-    .details {
-      top: auto;
-      right: 7%;
-      bottom: 7%;
-      left: 7%;
-    }
-
     .description {
-      max-width: 65%;
-      font-size: clamp(1.4rem, 6.5vw, 1.9rem);
+      max-width: 58%;
+      font-size: clamp(1.35rem, 6.4vw, 1.9rem);
     }
 
     .contact {
-      margin-top: 28px;
       font-size: clamp(1.3rem, 6vw, 1.7rem);
     }
 
-    .pate-photo {
-      right: 7%;
-      bottom: 8%;
-      width: 31%;
+    .rabbit {
+      top: 25%;
+      right: -16%;
+      width: 98%;
+    }
+
+    .photo-wrap {
+      width: 62%;
+      height: 32%;
     }
   }
 </style>
@@ -150,20 +189,31 @@
 <body>
   <main class="page">
 
-    <svg
-      class="wordmark"
-      viewBox="380 990 1440 670"
-      role="img"
-      aria-label="Ossum — game and marrow"
-      preserveAspectRatio="xMidYMid meet">
-      <image
-        href="logo.png"
-        x="0"
-        y="0"
-        width="2000"
-        height="2000">
-      </image>
-    </svg>
+    <section class="left-column">
+
+      <svg
+        class="wordmark"
+        viewBox="380 990 1440 670"
+        role="img"
+        aria-label="Ossum — game and marrow"
+        preserveAspectRatio="xMidYMid meet">
+        <image
+          href="logo.png"
+          x="0"
+          y="0"
+          width="2000"
+          height="2000">
+        </image>
+      </svg>
+
+      <p class="description">Game pâté and pie filling.</p>
+
+      <address class="contact">
+        <a href="tel:+447955822097">07955 822 097</a>
+        <a href="mailto:hello@ossum.london">hello@ossum.london</a>
+      </address>
+
+    </section>
 
     <svg
       class="rabbit"
@@ -179,19 +229,12 @@
       </image>
     </svg>
 
-    <section class="details">
-      <p class="description">Game pâté and pie filling.</p>
-
-      <address class="contact">
-        <a href="tel:+447955822097">07955 822 097</a>
-        <a href="mailto:hello@ossum.london">hello@ossum.london</a>
-      </address>
-    </section>
-
-    <img
-      class="pate-photo"
-      src="IMG_0029.jpeg"
-      alt="Ossum game pâté">
+    <div class="photo-wrap">
+      <img
+        class="pate-photo"
+        src="IMG_0029.jpeg"
+        alt="Ossum game pâté">
+    </div>
 
   </main>
 </body>
