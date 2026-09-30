@@ -133,6 +133,61 @@
       width: 102%;
     }
   }
+
+  .product-intro { width: 100%; }
+  .product-button {
+    margin-top: 1.15rem;
+    padding: .65rem 1rem;
+    border: 1px solid rgba(237,232,219,.55);
+    border-radius: 999px;
+    background: transparent;
+    color: var(--cream);
+    font: 400 .85rem "Libre Baskerville", Georgia, serif;
+    cursor: pointer;
+    transition: background .2s, color .2s;
+  }
+  .product-button:hover { background: var(--cream); color: var(--background); }
+  button:focus-visible { outline: 2px solid var(--orange); outline-offset: 5px; }
+  .product-dialog {
+    padding: 0;
+    border: 0;
+    border-radius: 14px;
+    width: min(860px, calc(100vw - 32px));
+    max-height: calc(100svh - 32px);
+    overflow: hidden;
+    background: var(--background);
+    box-shadow: 0 24px 100px rgba(0,0,0,.4);
+  }
+  .product-dialog[open] { animation: photo-open .25s ease-out; }
+  .product-dialog::backdrop { background: rgba(24,28,27,.75); backdrop-filter: blur(5px); }
+  .product-dialog img {
+    display: block;
+    width: 100%;
+    max-height: calc(100svh - 32px);
+    object-fit: contain;
+  }
+  .product-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 44px;
+    height: 44px;
+    border: 1px solid rgba(237,232,219,.5);
+    border-radius: 50%;
+    background: rgba(45,49,48,.85);
+    color: var(--cream);
+    font: 300 30px/1 Georgia, serif;
+    cursor: pointer;
+  }
+  .product-close:hover { background: var(--background); }
+  @keyframes photo-open {
+    from { opacity: 0; transform: scale(.94) translateY(8px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .product-dialog[open] { animation: none; }
+    .product-button { transition: none; }
+  }
 </style>
 </head>
 
@@ -156,7 +211,10 @@
         </image>
       </svg>
 
-      <p class="description">Game pâté and pie filling.</p>
+      <div class="product-intro">
+        <p class="description">Game pâté and pie filling.</p>
+        <button class="product-button" type="button" aria-haspopup="dialog" aria-controls="product-photo">See product</button>
+      </div>
 
       <address class="contact">
         <a href="tel:+447955822097">07955 822 097</a>
@@ -180,5 +238,24 @@
     </svg>
 
   </main>
+  <dialog class="product-dialog" id="product-photo" aria-label="Ossum game pâté">
+    <button class="product-close" type="button" aria-label="Close product photo" autofocus>×</button>
+    <img src="IMG_0029.jpeg" alt="Ossum game pâté, showing a cut portion and the whole terrine on wrapping paper">
+  </dialog>
+  <script>
+    const productButton = document.querySelector('.product-button');
+    const productDialog = document.querySelector('.product-dialog');
+    productButton.addEventListener('click', () => productDialog.showModal());
+    document.querySelector('.product-close').addEventListener('click', () => productDialog.close());
+    productDialog.addEventListener('click', (event) => {
+      const bounds = productDialog.getBoundingClientRect();
+      if (event.target === productDialog &&
+          (event.clientX < bounds.left || event.clientX > bounds.right ||
+           event.clientY < bounds.top || event.clientY > bounds.bottom)) {
+        productDialog.close();
+      }
+    });
+    productDialog.addEventListener('close', () => productButton.focus());
+  </script>
 </body>
 </html>
